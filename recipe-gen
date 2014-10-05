@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xsltproc /usr/local/lib/recipe-gen/texml.xsl $1 | texml - - | pdflatex
+
