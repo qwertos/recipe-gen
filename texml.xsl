@@ -110,7 +110,9 @@
 		<cmd name="item" />
 		<xsl:value-of select="amount/@value" />
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="amount/@unit" />
+		<xsl:if test="amount/@unit != 'natural'">
+			<xsl:value-of select="amount/@unit" />
+		</xsl:if>
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="name" />
 	</xsl:template>
