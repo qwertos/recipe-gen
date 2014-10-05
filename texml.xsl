@@ -50,12 +50,12 @@
 			</cmd>
 			<cmd name="makeatletter" />
 			<cmd name="let">
-				<parm>\hauthor</parm>
-				<parm>\@author</parm>
+				<parm>hauthor</parm>
+				<parm>@author</parm>
 			</cmd>
 			<cmd name="let">
-				<parm>\htitle</parm>
-				<parm>\@author</parm>
+				<parm>htitle</parm>
+				<parm>@title</parm>
 			</cmd>
 			<cmd name="makeatother" />
 			<env name="document">
