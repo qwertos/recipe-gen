@@ -61,39 +61,35 @@
 
 
 	<xsl:template match="recipes">
-		<xsl:for-each select="recipe">
-			<xsl:choose>
-				<xsl:when test="@href">
-					<xsl:for-each select="document(@href)">
-						<xsl:apply-templates select="recipe" />
-					</xsl:for-each>
-				</xsl:when>
-				<xsl:otherwise>
-
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:for-each>
+		<xsl:apply-templates select="recipe" />
 	</xsl:template>
 
 
 	<xsl:template match="recipe">
-		<cmd name="chapter">
-			<parm>
-				<xsl:value-of select="name" />
-			</parm>
-		</cmd>
-		<cmd name="section">
-			<parm>
-				<xsl:text>Ingredients</xsl:text>
-			</parm>
-		</cmd>
-		<xsl:apply-templates select="ingredients" />
-		<cmd name="section">
-			<parm>
-				<xsl:text>Directions</xsl:text>
-			</parm>
-		</cmd>
-		<xsl:apply-templates select="directions" />
+		<xsl:choose>
+			<xsl:when test="@href">
+				<xsl:apply-templates select="document(@href)/recipe" />
+			</xsl:when>
+			<xsl:otherwise>
+				<cmd name="chapter">
+					<parm>
+						<xsl:value-of select="name" />
+					</parm>
+				</cmd>
+				<cmd name="section">
+					<parm>
+						<xsl:text>Ingredients</xsl:text>
+					</parm>
+				</cmd>
+				<xsl:apply-templates select="ingredients" />
+				<cmd name="section">
+					<parm>
+						<xsl:text>Directions</xsl:text>
+					</parm>
+				</cmd>
+				<xsl:apply-templates select="directions" />
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="ingredients">
