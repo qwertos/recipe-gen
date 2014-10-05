@@ -56,8 +56,13 @@
 				<parm>secnumdepth</parm>
 				<parm>-2</parm>
 			</cmd>
+			<cmd name="setcounter">
+				<parm>tocdepth</parm>
+				<parm>0</parm>
+			</cmd>
 			<env name="document">
 				<cmd name="maketitle" />
+				<cmd name="tableofcontents" />
 				<xsl:apply-templates select="recipes" />
 			</env>
 		</TeXML>
