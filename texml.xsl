@@ -20,6 +20,9 @@
 				<parm>tikz</parm>
 			</cmd>
 			<cmd name="usepackage">
+				<parm>hyperref</parm>
+			</cmd>
+			<cmd name="usepackage">
 				<opt>margin=1in</opt>
 				<parm>geometry</parm>
 			</cmd>
@@ -92,6 +95,38 @@
 						<xsl:value-of select="name" />
 					</parm>
 				</cmd>
+				<xsl:if test="source">
+					<cmd name="section">
+						<parm>Source</parm>
+					</cmd>
+					<xsl:choose>
+						<xsl:when test="source/a">
+							<cmd name="href">
+								<parm>
+									<xsl:value-of select="source/a/@href" />
+								</parm>
+								<parm>
+									<xsl:choose>
+										<xsl:when test="source/a/text()">
+											<xsl:value-of select="source/a" />
+											<cmd name="footnote">
+												<parm>
+													<xsl:value-of select="source/a/@href" />
+												</parm>
+											</cmd>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="source/a/@href" />
+										</xsl:otherwise>
+									</xsl:choose>
+								</parm>
+							</cmd>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="source" />
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:if>
 				<cmd name="section">
 					<parm>
 						<xsl:text>Ingredients</xsl:text>
