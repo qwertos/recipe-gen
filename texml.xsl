@@ -30,16 +30,24 @@
 				<parm>fancyhdr</parm>
 			</cmd>
 			<cmd name="pagestyle">
-				<parm>fancy</parm>
+				<parm>fancyplain</parm>
 			</cmd>
 			<cmd name="cfoot">
 				<parm>\thepage</parm>
 			</cmd>
 			<cmd name="lhead">
-				<parm>\parttitle</parm>
+				<parm>
+					<cmd name="MakeUppercase">
+						<parm>\parttitle</parm>
+					</cmd>
+				</parm>
 			</cmd>
 			<cmd name="rhead">
 				<parm>\leftmark</parm>
+			</cmd>
+			<cmd name="renewcommand">
+				<parm>\plainheadrulewidth</parm>
+				<parm>0.4pt</parm>
 			</cmd>
 			<cmd name="newcommand">
 				<parm>\parttitle</parm>
@@ -76,6 +84,12 @@
 
 	<xsl:template match="recipes">
 		<xsl:if test="@heading">
+			<cmd name="renewcommand">
+				<parm>\parttitle</parm>
+				<parm>
+					<xsl:value-of select="/recipe-book/title" />
+				</parm>
+			</cmd>
 			<cmd name="part">
 				<parm>
 					<xsl:value-of select="@heading" />
@@ -89,6 +103,7 @@
 			</cmd>
 		</xsl:if>
 		<xsl:apply-templates select="recipe" />
+		<cmd name="newpage"/>
 	</xsl:template>
 
 
