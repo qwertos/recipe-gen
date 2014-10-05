@@ -14,6 +14,10 @@
 			<cmd name="usepackage">
 				<parm>tikz</parm>
 			</cmd>
+			<cmd name="usepackage">
+				<opt>margin=1in</opt>
+				<parm>geometry</parm>
+			</cmd>
 			<env name="document">
 				<xsl:apply-templates select="recipe" />
 			</env>
