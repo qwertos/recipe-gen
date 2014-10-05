@@ -36,17 +36,16 @@
 				<parm>\thepage</parm>
 			</cmd>
 			<cmd name="lhead">
+				<parm>\parttitle</parm>
+			</cmd>
+			<cmd name="rhead">
+				<parm>\leftmark</parm>
+			</cmd>
+			<cmd name="newcommand">
+				<parm>\parttitle</parm>
 				<parm>
 					<xsl:value-of select="title" />
 				</parm>
-			</cmd>
-			<cmd name="rhead">
-				<parm>
-					<xsl:value-of select="author" />
-				</parm>
-			</cmd>
-			<cmd name="chead">
-				<parm>\leftmark</parm>
 			</cmd>
 			<cmd name="title">
 				<parm>
@@ -78,6 +77,12 @@
 	<xsl:template match="recipes">
 		<xsl:if test="@heading">
 			<cmd name="part">
+				<parm>
+					<xsl:value-of select="@heading" />
+				</parm>
+			</cmd>
+			<cmd name="renewcommand">
+				<parm>\parttitle</parm>
 				<parm>
 					<xsl:value-of select="@heading" />
 				</parm>
