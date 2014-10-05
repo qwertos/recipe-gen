@@ -11,7 +11,7 @@
 
 
 	<xsl:template match="recipe-book">
-		<TeXML>
+		<TeXML escape="0">
 			<cmd name="documentclass">
 				<opt>letterpaper</opt>
 				<parm>report</parm>
