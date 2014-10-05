@@ -52,6 +52,10 @@
 					<xsl:value-of select="author" />
 				</parm>
 			</cmd>
+			<cmd name="setcounter">
+				<parm>secnumdepth</parm>
+				<parm>-2</parm>
+			</cmd>
 			<env name="document">
 				<cmd name="maketitle" />
 				<xsl:apply-templates select="recipes" />
