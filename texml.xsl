@@ -61,6 +61,13 @@
 
 
 	<xsl:template match="recipes">
+		<xsl:if test="@heading">
+			<cmd name="part">
+				<parm>
+					<xsl:value-of select="@heading" />
+				</parm>
+			</cmd>
+		</xsl:if>
 		<xsl:apply-templates select="recipe" />
 	</xsl:template>
 
