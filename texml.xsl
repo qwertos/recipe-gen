@@ -37,6 +37,12 @@
 			</parm>
 		</cmd>
 		<xsl:apply-templates select="ingredients" />
+		<cmd name="section">
+			<parm>
+				<xsl:text>Directions</xsl:text>
+			</parm>
+		</cmd>
+		<xsl:apply-templates select="directions" />
 	</xsl:template>
 
 	<xsl:template match="ingredients">
@@ -61,6 +67,18 @@
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="name" />
 	</xsl:template>
+
+	<xsl:template match="directions">
+		<env name="enumerate">
+			<xsl:apply-templates select="step" />
+		</env>
+	</xsl:template>
+
+	<xsl:template match="step">
+		<cmd name="item" />
+		<xsl:value-of select="." />
+	</xsl:template>
+
 
 
 
