@@ -45,6 +45,9 @@
 					<xsl:value-of select="author" />
 				</parm>
 			</cmd>
+			<cmd name="chead">
+				<parm>\leftmark</parm>
+			</cmd>
 			<cmd name="title">
 				<parm>
 					<xsl:value-of select="title" />
