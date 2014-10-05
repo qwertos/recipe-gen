@@ -22,7 +22,7 @@
 
 
 	<xsl:template match="recipe">
-		<cmd name="section">
+		<cmd name="chapter">
 			<parm>
 				<xsl:value-of select="name" />
 			</parm>
@@ -51,9 +51,9 @@
 
 	<xsl:template match="ingredient">
 		<cmd name="item" />
-		<xsl:value-of select="amount[0]/@value" />
+		<xsl:value-of select="amount/@value" />
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="amount[0]/@unit" />
+		<xsl:value-of select="amount/@unit" />
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="name" />
 	</xsl:template>
