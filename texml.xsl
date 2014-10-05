@@ -33,10 +33,14 @@
 				<parm>\thepage</parm>
 			</cmd>
 			<cmd name="lhead">
-				<parm>\htitle</parm>
+				<parm>
+					<xsl:value-of select="title" />
+				</parm>
 			</cmd>
 			<cmd name="rhead">
-				<parm>\hauthor</parm>
+				<parm>
+					<xsl:value-of select="author" />
+				</parm>
 			</cmd>
 			<cmd name="title">
 				<parm>
@@ -48,16 +52,6 @@
 					<xsl:value-of select="author" />
 				</parm>
 			</cmd>
-			<cmd name="makeatletter" />
-			<cmd name="let">
-				<parm>hauthor</parm>
-				<parm>@author</parm>
-			</cmd>
-			<cmd name="let">
-				<parm>htitle</parm>
-				<parm>@title</parm>
-			</cmd>
-			<cmd name="makeatother" />
 			<env name="document">
 				<cmd name="maketitle" />
 			</env>
