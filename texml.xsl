@@ -174,6 +174,7 @@
 			<xsl:value-of select="."/>
 			<xsl:text> )</xsl:text>
 		</xsl:for-each>
+		<xsl:apply-templates select="footnote" />
 	</xsl:template>
 
 	<xsl:template match="directions">
@@ -185,6 +186,14 @@
 	<xsl:template match="step">
 		<cmd name="item" />
 		<xsl:value-of select="." />
+	</xsl:template>
+
+	<xsl:template match="footnote">
+		<cmd name="footnote">
+			<parm>
+				<xsl:value-of select="."/>
+			</parm>
+		</cmd>
 	</xsl:template>
 
 
