@@ -64,7 +64,7 @@
 		<xsl:for-each select="recipe">
 			<xsl:choose>
 				<xsl:when test="@href">
-					<xsl:for-each select="document(@href)/">
+					<xsl:for-each select="document(@href)">
 						<xsl:apply-templates select="recipe" />
 					</xsl:for-each>
 				</xsl:when>
