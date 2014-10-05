@@ -54,8 +54,25 @@
 			</cmd>
 			<env name="document">
 				<cmd name="maketitle" />
+				<xsl:apply-templates select="recipes" />
 			</env>
 		</TeXML>
+	</xsl:template>
+
+
+	<xsl:template match="recipes">
+		<xsl:for-each select="recipe">
+			<xsl:choose>
+				<xsl:when test="@href">
+					<xsl:for-each select="document(@href)/">
+						<xsl:apply-templates select="recipe" />
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:otherwise>
+
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
 	</xsl:template>
 
 
