@@ -6,6 +6,11 @@
 	<xsl:output method="xml" indent="yes" />
 
 	<xsl:template match="/">
+		<xsl:apply-templates select="recipe-book" />
+	</xsl:template>
+
+
+	<xsl:template match="recipe-book">
 		<TeXML>
 			<cmd name="documentclass">
 				<opt>letterpaper</opt>
@@ -18,8 +23,43 @@
 				<opt>margin=1in</opt>
 				<parm>geometry</parm>
 			</cmd>
+			<cmd name="usepackage">
+				<parm>fancyhdr</parm>
+			</cmd>
+			<cmd name="pagestyle">
+				<parm>fancy</parm>
+			</cmd>
+			<cmd name="cfoot">
+				<parm>\thepage</parm>
+			</cmd>
+			<cmd name="lhead">
+				<parm>\htitle</parm>
+			</cmd>
+			<cmd name="rhead">
+				<parm>\hauthor</parm>
+			</cmd>
+			<cmd name="title">
+				<parm>
+					<xsl:value-of select="title" />
+				</parm>
+			</cmd>
+			<cmd name="author">
+				<parm>
+					<xsl:value-of select="author" />
+				</parm>
+			</cmd>
+			<cmd name="makeatletter" />
+			<cmd name="let">
+				<parm>\hauthor</parm>
+				<parm>\@author</parm>
+			</cmd>
+			<cmd name="let">
+				<parm>\htitle</parm>
+				<parm>\@author</parm>
+			</cmd>
+			<cmd name="makeatother" />
 			<env name="document">
-				<xsl:apply-templates select="recipe" />
+				<cmd name="maketitle" />
 			</env>
 		</TeXML>
 	</xsl:template>
