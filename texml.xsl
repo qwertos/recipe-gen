@@ -206,7 +206,7 @@
 	<xsl:template match="step">
 		<cmd name="item" />
 		<xsl:value-of select="." />
-		<xsl:template match="footnote" />
+		<xsl:apply-templates select="footnote" />
 	</xsl:template>
 
 	<xsl:template match="footnote">
