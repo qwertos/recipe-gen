@@ -27,6 +27,8 @@ A tool to generate cook books using a basic XML recipe format described below.
 
 ## XML Format
 
+Some elements/attributes listed below are listed as required and/or optional. If an required elements/attributes are missing, I don't think it will break anything. Likewise, in certain cases if optional elements/attributes are missing, it might break. YMMV.
+
 
 ### Recipe
 
@@ -110,7 +112,7 @@ A tool to generate cook books using a basic XML recipe format described below.
 				</name>
 			</ingredient>
 			<ingredient>
-				<amount value='as needed' unit="natural" />
+				<amount value='some' unit="natural" />
 				<name>
 					Bread Flour
 				</name>
@@ -216,7 +218,7 @@ A tool to generate cook books using a basic XML recipe format described below.
 						</name>
 					</ingredient>
 					<ingredient>
-						<amount value='as needed' unit="natural" />
+						<amount value='some' unit="natural" />
 						<name>
 							Bread Flour
 						</name>
