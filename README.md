@@ -49,9 +49,9 @@ Some elements/attributes listed below are listed as required and/or optional. If
 	+	Required.
 +	`/recipe/source/ingredients/@heading`
 	+	Name of the section of ingredients.
-	+	Useful if there are multiple 'sub recipes' within the recpie (eg. crust, topping, etc).
+	+	Useful if there are multiple 'sub recipes' within the recipe (eg. crust, topping, etc).
 	+	Optional.
-+	`/recpie/source/ingredients/ingredient/`
++	`/recipe/source/ingredients/ingredient/`
 	+	Individual ingredient in the recipe
 	+	Required.
 +	`/recipe/source/ingredients/ingredient/amount`
@@ -129,10 +129,10 @@ Some elements/attributes listed below are listed as required and/or optional. If
 				Let yeast spawn for about 15 min.
 			</step>
 			<step>
-				Mix in flour until bread dough consistancy.
+				Mix in flour until bread dough consistency.
 			</step>
 			<step>
-				Cut dough in to muffin sized chunks and place in muffin tin. Make sure the outside of the dough balls are coverd in flour and not sticky.
+				Cut dough in to muffin sized chunks and place in muffin tin. Make sure the outside of the dough balls are covered in flour and not sticky.
 			</step>
 			<step>
 				Let rise on the oven vent.
@@ -166,9 +166,9 @@ Some elements/attributes listed below are listed as required and/or optional. If
 +	`/recipe-book/recipes/recipe/@href`
 	+	The path to a recipe.
 	+	Optional.
-	+	Required if `/recipe-book/recipes/recipe/<subelements>` is empty.
-	+	Takes precidance over the contents of `/recipe-book/recipes/recipe`.
-+	`/recipe-book/recipes/recipe/<subelements>`
+	+	Required if `/recipe-book/recipes/recipe/<sub-elements>` is empty.
+	+	Takes precedence over the contents of `/recipe-book/recipes/recipe`.
++	`/recipe-book/recipes/recipe/<sub-elements>`
 	+	Information on a recipe.
 	+	Follows the same format as a separate recipe xml.
 
@@ -235,10 +235,10 @@ Some elements/attributes listed below are listed as required and/or optional. If
 						Let yeast spawn for about 15 min.
 					</step>
 					<step>
-						Mix in flour until bread dough consistancy.
+						Mix in flour until bread dough consistency.
 					</step>
 					<step>
-						Cut dough in to muffin sized chunks and place in muffin tin. Make sure the outside of the dough balls are coverd in flour and not sticky.
+						Cut dough in to muffin sized chunks and place in muffin tin. Make sure the outside of the dough balls are covered in flour and not sticky.
 					</step>
 					<step>
 						Let rise on the oven vent.
