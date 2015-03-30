@@ -86,9 +86,9 @@ Some elements/attributes listed below are listed as required and/or optional. If
 
 
 	<recipe>
-		<title>
+		<name>
 			Bread Muffins
-		</title>
+		</name>
 		<source>
 			My Kitchen
 		</source>
