@@ -15,7 +15,7 @@
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element ref="name" />
-			<xs:element ref="source" />
+			<xs:element ref="source" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="ingredients" />
 			<xs:element ref="directions" />
 		</xs:sequence>
@@ -38,7 +38,7 @@
 		<xs:sequence>
 			<xs:element ref="amount"/>
 			<xs:element ref="name" />
-			<xs:element ref="note" />
+			<xs:element ref="note" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
@@ -49,7 +49,7 @@
 <xs:element name="ingredients">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element ref="ingredient" />
+			<xs:element ref="ingredient" minOccurs="1" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
@@ -58,7 +58,7 @@
 <xs:element name="directions">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element ref="step"/>
+			<xs:element ref="step" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
