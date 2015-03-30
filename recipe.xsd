@@ -24,18 +24,23 @@
 
 
 
+<xs:element name="amount">
+	<xs:attribute name="value" type="xs:string" />
+	<xs:attribute name="unit" type="xs:string" />
+</xs:element>
+
+
+
 <xs:element name="ingredient">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="amount">
-				<xs:attribute name="value" type="xs:string" />
-				<xs:attribute name="unit" type="xs:string" />
-			</xs:element>
+			<xs:element ref="amount"/>
 			<xs:element ref="name" />
 			<xs:element ref="note" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
+
 
 
 
