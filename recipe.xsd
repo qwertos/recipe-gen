@@ -8,6 +8,9 @@
 <xs:element name="step" type="xs:string"/>
 
 
+<!-- Attributes -->
+<xs:attribute name="heading" type="xs:string" />
+
 
 <!-- Complex elements -->
 <xs:element name="a">
@@ -72,6 +75,7 @@
 		<xs:sequence>
 			<xs:element ref="ingredient" minOccurs="1" maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute ref="heading" />
 	</xs:complexType>
 </xs:element>
 
@@ -81,6 +85,7 @@
 		<xs:sequence>
 			<xs:element ref="step" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute ref="heading" />
 	</xs:complexType>
 </xs:element>
 
