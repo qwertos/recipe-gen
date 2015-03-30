@@ -25,8 +25,10 @@
 
 
 <xs:element name="amount">
-	<xs:attribute name="value" type="xs:string" />
-	<xs:attribute name="unit" type="xs:string" />
+	<xs:complexType>
+		<xs:attribute name="value" type="xs:string" />
+		<xs:attribute name="unit" type="xs:string" />
+	</xs:complexType>
 </xs:element>
 
 
