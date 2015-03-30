@@ -29,6 +29,9 @@
 			<cmd name="usepackage">
 				<parm>fancyhdr</parm>
 			</cmd>
+			<cmd name='usepackage'>
+				<parm>xfrac</parm>
+			</cmd>
 			<cmd name="pagestyle">
 				<parm>fancyplain</parm>
 			</cmd>
@@ -182,11 +185,11 @@
 
 	<xsl:template match="ingredient">
 		<cmd name="item" />
-		<xsl:value-of select="amount[1]/@value" />
+		<xsl:apply-templates select="amount[1]" />
 		<xsl:if test="amount[1]/@range">
 			<xsl:text> - </xsl:text>
 			<xsl:variable name="unit" select="amount[1]/@unit" />
-			<xsl:value-of select="amount[( @unit = $unit ) and ( @range = 'max' )]/@value" />
+			<xsl:apply-templates select="amount[( @unit = $unit ) and ( @range = 'max' )]/@value" />
 		</xsl:if>
 		<xsl:text> </xsl:text>
 		<xsl:if test="amount/@unit != 'natural'">
@@ -200,6 +203,64 @@
 			<xsl:text> )</xsl:text>
 		</xsl:for-each>
 		<xsl:apply-templates select="footnote" />
+	</xsl:template>
+
+	<xsl:template match="amount">
+		<xsl:choose>
+			<xsl:when test="floor(@value) = @value">
+				<xsl:value-of select='@value' />
+			</xsl:when>
+
+			<xsl:otherwise>
+				<xsl:variable name="whole" select="floor(@value)" />
+				<xsl:variable name="part" select="@value - $whole" />
+
+				<xsl:if test="$whole != 0">
+					<xsl:value-of select="$whole" />
+				</xsl:if>
+
+				<xsl:choose>
+					<xsl:when test="$part = 0.25">
+						<cmd name="sfrac">
+							<parm>1</parm>
+							<parm>4</parm>
+						</cmd>
+					</xsl:when>
+
+					<xsl:when test="$part = 0.33">
+						<cmd name="sfrac">
+							<parm>1</parm>
+							<parm>3</parm>
+						</cmd>
+					</xsl:when>
+
+					<xsl:when test="$part = 0.5">
+						<cmd name="sfrac">
+							<parm>1</parm>
+							<parm>2</parm>
+						</cmd>
+					</xsl:when>
+
+					<xsl:when test="$part = 0.66">
+						<cmd name="sfrac">
+							<parm>2</parm>
+							<parm>3</parm>
+						</cmd>
+					</xsl:when>
+
+					<xsl:when test="$part = 0.75">
+						<cmd name="sfrac">
+							<parm>3</parm>
+							<parm>4</parm>
+						</cmd>
+					</xsl:when>
+
+					<xsl:otherwise>
+						<xsl:value-of select="$part" />
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="directions">
