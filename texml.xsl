@@ -198,6 +198,14 @@
 	</xsl:template>
 
 	<xsl:template match="directions">
+		<xsl:if test="@heading">
+			<cmd name="subsection">
+				<parm>
+					<xsl:value-of select="@heading" />
+				</parm>
+			</cmd>
+		</xsl:if>
+
 		<env name="enumerate">
 			<xsl:apply-templates select="step" />
 		</env>
