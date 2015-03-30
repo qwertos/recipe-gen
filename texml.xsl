@@ -182,10 +182,10 @@
 
 	<xsl:template match="ingredient">
 		<cmd name="item" />
-		<xsl:value-of select="amount/@value" />
-		<xsl:if test="amount/@range">
+		<xsl:value-of select="amount[1]/@value" />
+		<xsl:if test="amount[1]/@range">
 			<xsl:text> - </xsl:text>
-			<xsl:variable name="unit" select="amount/@unit" />
+			<xsl:variable name="unit" select="amount[1]/@unit" />
 			<xsl:value-of select="amount[( @unit = $unit ) and ( @range = 'max' )]/@value" />
 		</xsl:if>
 		<xsl:text> </xsl:text>
