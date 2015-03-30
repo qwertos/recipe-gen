@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- Simple elements -->
+<xs:element name="name" type="xs:string"/>
+<xs:element name="note" type="xs:string"/>
+<xs:element name="footnote" type="xs:string"/>
+<xs:element name="source" type="xs:string"/>
+<xs:element name="step" type="xs:string"/>
+
+
+
+<!-- Complex elements -->
+<xs:element name="recipe">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="name" />
+			<xs:element ref="source" />
+			<xs:element ref="ingredients" />
+			<xs:element ref="directions" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
+<xs:element name="ingredient">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="amount">
+				<xs:attribute name="value" type="xs:string" />
+				<xs:attribute name="unit" type="xs:string" />
+			</xs:element>
+			<xs:element ref="name" />
+			<xs:element ref="note" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
+<xs:element name="ingredients">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="ingredient" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:element name="directions">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="step"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
+
+</xs:schema>
