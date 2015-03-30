@@ -39,8 +39,8 @@
 		<xs:sequence>
 			<xs:element ref="name" />
 			<xs:element ref="source" minOccurs="0" maxOccurs="1" />
-			<xs:element ref="ingredients" />
-			<xs:element ref="directions" />
+			<xs:element ref="ingredients" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="directions" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
