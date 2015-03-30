@@ -10,6 +10,13 @@
 
 <!-- Attributes -->
 <xs:attribute name="heading" type="xs:string" />
+<xs:attribute name="range">
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="min|max" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:attribute>
 
 
 <!-- Complex elements -->
@@ -49,6 +56,7 @@
 
 <xs:element name="amount">
 	<xs:complexType>
+		<xs:attribute ref='range'/>
 		<xs:attribute name="value" type="xs:string" />
 		<xs:attribute name="unit" type="xs:string" />
 	</xs:complexType>
