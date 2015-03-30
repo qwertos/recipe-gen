@@ -5,12 +5,32 @@
 <xs:element name="name" type="xs:string"/>
 <xs:element name="note" type="xs:string"/>
 <xs:element name="footnote" type="xs:string"/>
-<xs:element name="source" type="xs:string"/>
 <xs:element name="step" type="xs:string"/>
 
 
 
 <!-- Complex elements -->
+<xs:element name="a">
+	<xs:complexType>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="href" type="xs:anyURI" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:element name="source">
+	<xs:complexType mixed="true">
+		<xs:sequence>
+			<xs:element ref="a" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
 <xs:element name="recipe">
 	<xs:complexType>
 		<xs:sequence>
