@@ -1,7 +1,7 @@
 
 all:
 
-install: /usr/local/bin/recipe-gen
+install: /usr/local/bin/recipe-gen /usr/local/lib/recipe-gen/recipe.xsd
 
 
 /usr/local/lib/recipe-gen:
