@@ -59,7 +59,7 @@
 <xs:element name="ingredient">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element ref="amount" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="amount" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="name" />
 			<xs:element ref="note" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="footnote" minOccurs="0" maxOccurs="1"/>
