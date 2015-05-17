@@ -153,18 +153,22 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:if>
-				<cmd name="section">
-					<parm>
-						<xsl:text>Ingredients</xsl:text>
-					</parm>
-				</cmd>
-				<xsl:apply-templates select="ingredients" />
-				<cmd name="section">
-					<parm>
-						<xsl:text>Directions</xsl:text>
-					</parm>
-				</cmd>
-				<xsl:apply-templates select="directions" />
+				<xsl:if test="ingredients">
+					<cmd name="section">
+						<parm>
+							<xsl:text>Ingredients</xsl:text>
+						</parm>
+					</cmd>
+					<xsl:apply-templates select="ingredients" />
+				</xsl:if>
+				<xsl:if test="directions">
+					<cmd name="section">
+						<parm>
+							<xsl:text>Directions</xsl:text>
+						</parm>
+					</cmd>
+					<xsl:apply-templates select="directions" />
+				</xsl:if>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
