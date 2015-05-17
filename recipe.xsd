@@ -48,12 +48,21 @@
 		<xs:sequence>
 			<xs:element ref="name" />
 			<xs:element ref="source" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="yield" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="ingredients" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="directions" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
 
+
+<xs:element name="yield">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="amount" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
 
 
 <xs:element name="amount">
