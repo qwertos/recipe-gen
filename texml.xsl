@@ -220,6 +220,13 @@
 				</xsl:if>
 
 				<xsl:choose>
+					<xsl:when test="$part = 0.125">
+						<cmd name="sfrac">
+							<parm>1</parm>
+							<parm>8</parm>
+						</cmd>
+					</xsl:when>
+
 					<xsl:when test="$part = 0.25">
 						<cmd name="sfrac">
 							<parm>1</parm>
