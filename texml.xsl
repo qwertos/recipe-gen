@@ -122,9 +122,10 @@
 					</parm>
 				</cmd>
 				<xsl:if test="source">
-					<cmd name="section">
-						<parm>Source</parm>
+					<cmd name="textbf">
+						<parm>Source:</parm>
 					</cmd>
+					<xsl:text> </xsl:text>
 					<xsl:choose>
 						<xsl:when test="source/a">
 							<cmd name="href">
@@ -152,6 +153,18 @@
 							<xsl:value-of select="source" />
 						</xsl:otherwise>
 					</xsl:choose>
+					<xsl:if test="yield">
+						<xsl:text>\\</xsl:text>
+					</xsl:if>
+				</xsl:if>
+				<xsl:if test="yield">
+					<cmd name="textbf">
+						<parm>Yield:</parm>
+					</cmd>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="yield/amount/@value"/>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="yield/amount/@unit"/>
 				</xsl:if>
 				<xsl:if test="ingredients">
 					<cmd name="section">
